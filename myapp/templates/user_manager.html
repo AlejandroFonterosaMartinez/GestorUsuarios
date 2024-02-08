@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestor de Usuarios</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet">
+        <style>
+    </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="bg-gray-800 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="{% url 'user_manager' %}"
+                    class="text-white text-2xl font-bold">Gestión de
+                    Usuarios</a>
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'user_manager' %}"
+                            class="text-white">Inicio</a></li>
+                    <li><a href="{% url 'about' %}"
+                            class="text-white">Acerca</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mx-auto p-4" style="margin-top: 30px;">
+            <h1 class="text-3xl font-bold mb-4">Usuarios Existentes</h1>
+
+            <!-- Lista de usuarios -->
+            <div class="bg-white shadow-md rounded my-6 overflow-x-auto">
+                <table class="w-full table-auto text-center">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="px-6 py-3 bg-gray-200 ">ID</th>
+                            <th
+                                class="px-6 py-3 bg-gray-200 ">Nombre</th>
+
+                            <th class="px-6 py-3 bg-gray-200 ">Fecha
+                                Registro</th>
+                            <th
+                                class="px-6 py-3 bg-gray-200 ">Staff</th>
+                            <th
+                                class="px-6 py-3 bg-gray-200 ">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td class="border px-4 py-2">{{user.id}}</td>
+                            <td class="border px-4 py-2">{{user.username}}</td>
+                            <td
+                                class="border px-4 py-2">{{user.date_joined}}</td>
+                            <td class="border px-4 py-2">{{user.is_staff}}</td>
+                            <td class="border px-4 py-2">{{user.email}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulario de creación de usuario -->
+            <div class="bg-white shadow-md rounded p-4 my-6">
+                <h2 class="text-xl font-bold mb-2">Crear Nuevo Usuario</h2>
+                <form method="post" action="{% url 'crear_usuario' %}"
+                    class="flex flex-col space-y-2">
+                    {% csrf_token %}
+                    <input type="text" name="username"
+                        placeholder="Nombre de usuario"
+                        class="border p-2 rounded">
+                    <input type="email" name="email"
+                        placeholder="Correo electrónico"
+                        class="border p-2 rounded">
+                    <input type="password" name="password"
+                        placeholder="Contraseña" class="border p-2 rounded">
+                    <button type="submit"
+                        class="bg-blue-500 text-white font-bold py-2 rounded">Crear
+                        Usuario</button>
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>

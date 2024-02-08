@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet">
+        <style>
+    </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="bg-gray-800 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="{% url 'user_manager' %}" class="text-white text-2xl font-bold">Gestión de
+                    Usuarios</a>
+                <ul class="flex space-x-4">
+                    <li><a href="{% url 'user_manager' %}" class="text-white">Inicio</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white">Acerca</a></li>
+                </ul>
+            </div>
+        </nav>
+          <div class="container mx-auto my-8">
+            <h2 class="text-3xl font-bold mb-4">About Us</h2>
+            <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In est perferendis cupiditate, ullam rem nesciunt, doloribus architecto et magnam maxime tenetur possimus quasi laudantium perspiciatis officiis, ut beatae minima magni!</p>
+            <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In est perferendis cupiditate, ullam rem nesciunt, doloribus architecto et magnam maxime tenetur possimus quasi laudantium perspiciatis officiis, ut beatae minima magni!</p>
+            <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In est perferendis cupiditate, ullam rem nesciunt, doloribus architecto et magnam maxime tenetur possimus quasi laudantium perspiciatis officiis, ut beatae minima magni!</p>
+          </div>
+        
+            </div>
+        </div>
+    </body>
+</html>
